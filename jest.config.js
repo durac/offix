@@ -1,12 +1,34 @@
+/* eslint-disable */
+const baseConfig = require("../../jest.config");
+const packageName = require("./package.json").name;
+
 module.exports = {
-  verbose: true,
-  projects: ["<rootDir>/packages/*/jest.config.js"],
-  collectCoverageFrom: [
-    "<rootDir>/packages/*/src/**/*.{ts,tsx}"
+  ...baseConfig,
+  rootDir: '../..',
+  moduleFileExtensions: [
+    "ts",
+    "js",
+    "json",
+    "jsx",
+    "tsx",
+    "node"
   ],
-  moduleDirectories: ["node_modules"],
-  preset: "ts-jest",
-  transform: {
-    "^.+\\.jsx?$": ["babel-jest"]
-  }
+  roots: [
+    `<rootDir>/packages/${packageName}`,
+  ],
+  collectCoverageFrom: [
+      'src/**/*.{ts,tsx}',
+  ],
+  testRegex: `(packages/${packageName}/.*/__tests__/.*|\\.(test|spec))\\.tsx?$`,
+  testURL: 'http://localhost/',
+  moduleDirectories: [
+      'node_modules',
+  ],
+  modulePaths: [
+      `<rootDir>/packages/${packageName}/src/`,
+  ],
+  projects: [`<rootDir>/packages/${packageName}/jest.config.js`],
+  name: packageName,
+  displayName: packageName,
+  rootDir: '../..',
 };
