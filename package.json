@@ -7,8 +7,7 @@
     "react",
     "hooks"
   ],
-  "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "main": "src/index.ts",
   "scripts": {
     "clean": "del coverage src/**/*.js src/**/*.map test/**/*.js test/**/*.map dist types",
     "build": "tsc",
@@ -48,7 +47,7 @@
     "typescript": "3.9.5"
   },
   "dependencies": {
-    "offix-client": "0.15.5",
+    "offix-client": "0.15.5"
   },
   "peerDependencies": {
     "graphql": "^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0",
